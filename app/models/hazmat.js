@@ -1,13 +1,12 @@
-var Sequelize = require("sequelize");
-
-const hazards = sequelize.define('hazards',{
-  technical_name: Sequelize.STRING,
-  hazard_class: Sequelize.INTEGER,
-  packing_group:Sequelize.STRING,
-  packing_instructions:Sequelize.STRING,
-  UN_number:Sequelize.STRING,
-  allowNull: false,
-  unique:true,
-});
-
-module.export(hazards);
+module.exports = function(sequelize,DataTypes){
+  const hazards = sequelize.define('hazards',{
+    technical_name: DataTypes.STRING,
+    hazard_class: DataTypes.INTEGER,
+    packing_group:DataTypes.STRING,
+    packing_instructions:DataTypes.STRING,
+    UN_number:DataTypes.STRING,
+    allowNull: false,
+    unique:true,
+  });
+  return hazards;
+}

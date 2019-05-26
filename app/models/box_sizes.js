@@ -1,11 +1,10 @@
-var Sequelize = require("sequelize");
-
-const boxes = sequelize.define('boxes',{
-  name:Sequelize.STRING,
-  boxes_per_largeOverpack:Sequelize.INTEGER,
-  boxes_per_mediumOverpack:Sequelize.INTEGER,
-  boxes_per_smallOverpack:Sequelize.INTEGER,
-  unique:true,
-});
-
-module.exports(boxes);
+module.exports = function(sequelize,DataTypes){
+  const boxes = sequelize.define('boxes',{
+    name:DataTypes.STRING,
+    boxes_per_largeOverpack: DataTypes.INTEGER,
+    boxes_per_mediumOverpack: DataTypes.INTEGER,
+    boxes_per_smallOverpack: DataTypes.INTEGER,
+    unique:true,
+  });
+  return boxes;
+}

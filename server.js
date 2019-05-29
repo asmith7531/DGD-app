@@ -14,7 +14,7 @@ app.use(express.json());
 //letting the express app serve static files
 app.use(express.static("./app/public"));
 
-require('./routes/api-routes.js')(app);
+require('./app/routes/api-routes')(app);
 
 db.sequelize.sync().then(function() {
   app.listen(PORT, function() {

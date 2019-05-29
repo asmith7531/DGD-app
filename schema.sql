@@ -1,4 +1,4 @@
-DROP DATABASE IF EXISTS emd_shipment_db;
-CREATE DATABASE emd_shipment_db;
-USE emd_shipment_db;
+DROP DATABASE IF EXISTS rinchem_dg_db;
+CREATE DATABASE rinchem_dg_db;
+USE rinchem_dg_db;
 

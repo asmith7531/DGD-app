@@ -7,19 +7,20 @@ var models = require("../models");
 module.exports = app => {
   //============================================== Address Book Routes
   app.get("/api/AddressBook", (req, res) => {
-    db.AddressBook.findAll({}).then(dbAddressBook => {
+    db.AddressBooks.findAll({}).then(dbAddressBook => {
       res.json(dbAddressBook);
     });
   });
   app.post("/api/create-location", (req, res) => {
-    models.AddressdbAddressBook.create({
+    models.AddressBooks.create({
+      custID: req.body.custID,
       country: req.body.country,
       address1: req.body.address1,
       address2: req.body.address2,
       city: req.body.city,
-      region: req.body.region
+      zipcode: req.body.zipcode
     }).then(dbAddressBook => {
-      res.json(dbAddressBook);
+      res.redirect("/");
     });
   });
 

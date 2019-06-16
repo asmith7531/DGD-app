@@ -1,7 +1,8 @@
 module.exports = (sequelize, DataTypes) => {
   const AddressBook = sequelize.define(
-    "AddressBook",
+    "AddressBooks",
     {
+      custID: DataTypes.STRING,
       country: DataTypes.STRING,
       address1: DataTypes.STRING,
       address2: DataTypes.STRING,

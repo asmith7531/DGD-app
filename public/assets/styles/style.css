@@ -1,0 +1,73 @@
+.jumbotron{
+ padding: 2%;
+  background: maroon;
+  color: white;
+justify-content: space-evenly
+}
+
+.container{
+  float:left;
+  margin-left: 20px;
+  justify-content: space-between;
+  display: -webkit-inline-flex;
+ justify-self: space between;
+ border-radius: 15px;
+}
+
+.text {
+  font-size: 16px;
+  font-kerning: normal;
+  font-family: 'Overpass', sans-serif;
+  padding: 3px;
+}
+
+.title {
+  font-family: 'Montserrat', sans-serif;
+  font-size:30px;
+  font-kerning: normal;
+  color:white;
+}
+
+body{
+  background-image: url("dgPaper.jpg");
+  background-size:cover;
+  background-position: center;
+}
+
+.add{
+  background-color: lightgray;
+  padding:10px;
+  margin: 1%;
+  border-radius:15px;
+}
+
+#document {
+  size: auto;
+}
+
+.batchForm{
+  padding:10px;
+  background: lightgray ;
+  margin: 1%;
+  border-radius:15px;
+  margin-bottom: 30%;
+}
+
+button{
+  margin-left: 10px
+}
+
+#output{
+  background: lightgray;
+  columns: 200px,6;
+  column-rule: 1px ,solid, black; 
+  width:60%;
+  margin: unset;
+}
+#buttons{
+  justify-self: left;
+}
+.output{
+  margin-left:8%;
+  margin-right:8%;
+}

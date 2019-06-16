@@ -1,0 +1,26 @@
+{
+  "name": "dgd-app",
+  "version": "1.0.0",
+  "description": "An application for consolidating EMD's overly complicated paperwork",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/asmith7531/DGD-app.git"
+  },
+  "author": "austin smith",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/asmith7531/DGD-app/issues"
+  },
+  "homepage": "https://github.com/asmith7531/DGD-app#readme",
+  "dependencies": {
+    "dotenv": "^8.0.0",
+    "express-handlebars": "^3.1.0",
+    "mysql2": "^1.6.5",
+    "sequelize": "^5.8.8",
+    "sequelize-cli": "^5.5.0"
+  }
+}

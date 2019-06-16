@@ -1,23 +1,54 @@
-//server dependencies
+require("dotenv").config();
 var express = require("express");
-
-//setting up the express app
+var exphbs = require("express-handlebars");
+var db = require("./models");
 var app = express();
-var PORT = process.env.PORT || 3000;
+var PORT = process.env.PORT || 8080;
 
-var db = require("./app/models");
-
-//settign up the express app to use data parsing 
-app.use(express.urlencoded({ extended:true }));
+// Middleware
+app.use(
+  express.urlencoded({
+    extended: false
+  })
+);
 app.use(express.json());
+app.use(express.static("public"));
 
-//letting the express app serve static files
-app.use(express.static("./app/public"));
+//more comments
+// Handlebars
+app.engine(
+  "handlebars",
+  exphbs({
+    defaultLayout: "main"
+  })
+);
+app.set("view engine", "handlebars");
 
-require('./app/routes/api-routes')(app);
+app.use(express.static(__dirname + "/public"));
+// app.use("/static", express.static(path.join(__dirname, "public")));
 
-db.sequelize.sync().then(function() {
-  app.listen(PORT, function() {
-    console.log("App listening on PORT " + PORT);
+// Routes
+require("./routes/html-routes")(app);
+require("./routes/api-routes")(app);
+
+var syncOptions = {
+  force: false
+};
+
+// If running a test, set syncOptions.force to true
+// clearing the `testdb`
+if (process.env.NODE_ENV === "test") {
+  syncOptions.force = true;
+}
+
+// Starting the server, syncing our models ------------------------------------/
+db.sequelize.sync(syncOptions).then(() => {
+  app.listen(PORT, () => {
+    console.log(
+      "==> 🌎  Listening on port %s. Visit http://localhost:%s/ in your browser.",
+      PORT,
+      PORT
+    );
   });
 });
+module.exports = app;

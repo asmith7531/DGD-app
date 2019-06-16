@@ -6,9 +6,18 @@ var models = require("../models");
 //============================
 module.exports = app => {
   //============================================== Address Book Routes
-  app.get("/api/AddressBook", (req, res) => {
-    db.AddressBooks.findAll({}).then(dbAddressBook => {
-      res.json(dbAddressBook);
+
+  let contacts;
+  app.get("/api/addressbook", (req, res) => {
+    models.AddressBooks.findAll({}).then(function(response) {
+      console.log(response);
+      let myContacts;
+      myContacts = response.dataValues;
+    });
+  });
+  app.get("/api/addressbook/:id", (req, res) => {
+    models.AddressBooks.findAll({}).then(response => {
+      res.json(response);
     });
   });
   app.post("/api/create-location", (req, res) => {
@@ -23,56 +32,36 @@ module.exports = app => {
       res.redirect("/");
     });
   });
-
-  // SHOW LIST OF SHIPMENTS
-  app.get("/shipments", function(req, res, next) {
-    req.getConnection(function(error, conn) {
-      conn.query("SELECT * FROM shipments ORDER BY id DESC", function(
-        err,
-        rows,
-        fields
-      ) {
-        res.render("shipments", {
-          title: "Shipments",
-          data: rows
-        });
+  app.post("/api/create-hazmat", (req, res) => {
+    models.hazmat
+      .create({
+        unNum: req.body.unNum,
+        name: req.body.name,
+        class: req.body.class,
+        pg: req.body.pg,
+        packingInst: req.body.packingInst
+      })
+      .then(response => {
+        console.log(response);
+        res.redirect("/hazmat");
       });
+  });
+  app.post("/api/create-order", (req, res) => {
+    models.AddressBooks.create({
+      date: req.body.date,
+      orderNum: req.body.orderNum,
+      lotNum: req.body.lotNum,
+      bottles: req.body.bottles,
+      boxSize: req.body.boxSize,
+      hazmat: req.body.hazmat
+    }).then(dbAddressBook => {
+      res.redirect("/");
     });
   });
-  //deletes from the box size table at a specific id
-  // app.delete("/api/box_sizes/:id", function(req,res){
-
-  // });
-  // //
-  // //===============================================
-  // //countries routes
-  // app.get("/api/countries", function(req,res){
-
-  // });
-  // //posts to the countries table
-  // app.post("/api/countries", function(req, res){
-
-  // });
-  // //deletes from the countries table at a specific id
-  // app.delete("/api/countries/:id", function(req,res){
-
-  // });
-  //   //
-  // //===============================================
-  // //hazmat routes
-  // app.get("/api/hazmat", function (req,res){
-
-  // })
-  // //posts to the hazmat route
-  // app.post("/api/hazmat", function (req,res){
-
-  // })
-  // //deletes from the hazmat table at a specific id
-  // app.delete("/api/hazmat/:id", function (req, res){
-
-  // })
-  // //updates the hazmat table at a specific id
-  // app.put("api/hazmat/:id", function (req, res){
-
-  // })
+  app.get("/api/orders", (req, res) => {
+    models.orders.findAll({}).then(response => {
+      console.log(response);
+      res.json(response);
+    });
+  });
 };

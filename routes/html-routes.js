@@ -1,4 +1,6 @@
-var db = require("../models");
+var express = require("express");
+var db = require("../config/config.json");
+var models = require("../models");
 
 module.exports = function(app) {
   // Load login page
@@ -7,29 +9,24 @@ module.exports = function(app) {
   });
   // Load addressbook page
   app.get("/addressbook", function(req, res) {
-    res.render("add-contact");
-  });
-
-  app.get("/shipments", function(req, res) {
-    res.render("shipments");
-  });
-
-  // SHOW LIST OF SHIPMENTS
-  app.get("/shipments", function(req, res, next) {
-    req.getConnection(function(error, conn) {
-      conn.query("SELECT * FROM shipments", function(err, rows, fields) {
-        res.render("shipments", {
-          title: "Shipments",
-          data: rows
-        });
-      });
+    let myContacts;
+    models.AddressBooks.findAll({}).then(function(response) {
+      console.log(response);
+      myContacts = response[0].dataValues;
+      console.log(myContacts);
+      country = myContacts.country;
+      console.log(country);
+      address1 = myContacts.address1;
+      address2 = myContacts.address2;
+      city = myContacts.city;
+      zipcode = myContacts.zipcode;
     });
+    // myContacts.state = dataValues.AddressBooks.state;
+    res.render("addressbook", myContacts);
   });
-  // // Load home page
-  // app.get("/home", function(req, res) {
-  //   res.render("index");
-  // });
-
+  app.get("/hazmat", function(req, res) {
+    res.render("hazmat");
+  });
   // Render 404 page for any unmatched routes
   app.get("*", function(req, res) {
     res.render("404");

@@ -1,15 +1,16 @@
+"use strict";
+
 module.exports = {
   up: (queryInterface, Sequelize) => {
     return queryInterface.bulkInsert(
-      "orders",
+      "hazmats",
       [
         {
-          date: new Date(),
-          orderNum: 80341111,
-          lotNum: "USAW123456",
-          bottles: 147,
-          boxSize: "4x1",
-          hazmat: "2-Methoxy-1-methylethyl acetate",
+          unNum: 1993,
+          name: "2-methoxy-1-methylethyl acetate",
+          class: 3,
+          packingInst: 355,
+          packingInstCAO: 366,
           createdAt: new Date(),
           updatedAt: new Date()
         }
@@ -19,6 +20,6 @@ module.exports = {
   },
 
   down: (queryInterface, Sequelize) => {
-    return queryInterface.bulkDelete("orders", null, {});
+    return queryInterface.bulkDelete("hazmats", null, {});
   }
 };

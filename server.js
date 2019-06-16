@@ -5,16 +5,10 @@ var db = require("./models");
 var app = express();
 var PORT = process.env.PORT || 8080;
 
-// Middleware
-app.use(
-  express.urlencoded({
-    extended: false
-  })
-);
 app.use(express.json());
-app.use(express.static("public"));
+app.use(express.urlencoded()); // to support url encoded bodies
+app.use(express.static(__dirname + "/public"));
 
-//more comments
 // Handlebars
 app.engine(
   "handlebars",
@@ -24,22 +18,14 @@ app.engine(
 );
 app.set("view engine", "handlebars");
 
-app.use(express.static(__dirname + "/public"));
-// app.use("/static", express.static(path.join(__dirname, "public")));
-
 // Routes
 require("./routes/html-routes")(app);
 require("./routes/api-routes")(app);
 
+//set to true to force the DB to reset during tests/development
 var syncOptions = {
   force: false
 };
-
-// If running a test, set syncOptions.force to true
-// clearing the `testdb`
-if (process.env.NODE_ENV === "test") {
-  syncOptions.force = true;
-}
 
 // Starting the server, syncing our models ------------------------------------/
 db.sequelize.sync(syncOptions).then(() => {

@@ -39,15 +39,34 @@
             Add New Destination
           </button>
         </div>
+    <br>
+    <div>
+      <h1>
+     {{#each AddressBooks}}
+     {{!-- {{#}} --}}
+    <ul>
+     <li>
+       Country: {{this.country}}
+     </li>
+       <li>
+       Address 1: {{this.address1}}
+     </li>
+       <li>
+       Address 2: {{this.address2}}
+     </li>
+       <li>
+       City: {{this.city}}
+     </li>
+      <li>
+       Zipcode: {{this.zipcode}}
+     </li>
+    </ul>
+    <br>
+      {{/each}}
+      </h1>
+    </div>
       </div>
     </form>
-    <div>
-      {{#if contacts}}
-
-      {{>/contacts country=country address1=address1 address2=address2 city=city zipcode=zipcode}}
-
-      {{/if}}
-    </div>
     <table id="tablePreview" class="table table-hover">
       <!--Table head-->
       <thead>

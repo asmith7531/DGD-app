@@ -4,6 +4,7 @@ module.exports = (sequelize, DataTypes) => {
     unNum: DataTypes.INTEGER,
     name: DataTypes.STRING,
     class: DataTypes.INTEGER,
+    pg: DataTypes.INTEGER,
     packingInst: DataTypes.INTEGER,
     packingInstCAO: DataTypes.INTEGER
   });

@@ -9,6 +9,7 @@ module.exports = {
           unNum: 1993,
           name: "2-methoxy-1-methylethyl acetate",
           class: 3,
+          pg: 3,
           packingInst: 355,
           packingInstCAO: 366,
           createdAt: new Date(),

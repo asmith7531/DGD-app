@@ -7,25 +7,18 @@ module.exports = function(app) {
   app.get("/", function(req, res) {
     res.render("index");
   });
-  // Load addressbook page
+  // Load addressbook page and get all of the addresses
   app.get("/addressbook", function(req, res) {
-    let myContacts;
     models.AddressBooks.findAll({}).then(function(response) {
-      console.log(response);
-      myContacts = response[0].dataValues;
-      console.log(myContacts);
-      country = myContacts.country;
-      console.log(country);
-      address1 = myContacts.address1;
-      address2 = myContacts.address2;
-      city = myContacts.city;
-      zipcode = myContacts.zipcode;
+      console.log(response)
+      res.render("addressbook",{AddressBooks:response});
     });
     // myContacts.state = dataValues.AddressBooks.state;
-    res.render("addressbook", myContacts);
   });
   app.get("/hazmat", function(req, res) {
-    res.render("hazmat");
+    models.hazmats.findAll({}).then(response => {
+      res.render("hazmat",{hazmats:response});
+    })
   });
   // Render 404 page for any unmatched routes
   app.get("*", function(req, res) {

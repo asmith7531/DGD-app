@@ -33,16 +33,16 @@ module.exports = app => {
     });
   });
   app.post("/api/create-hazmat", (req, res) => {
-    models.hazmat
-      .create({
+    models.hazmats.create({
         unNum: req.body.unNum,
         name: req.body.name,
         class: req.body.class,
         pg: req.body.pg,
-        packingInst: req.body.packingInst
+        packingInst: req.body.packingInst,
+        packingInstCAO: req.body.packingInstCAO
       })
       .then(response => {
-        console.log(response);
+      
         res.redirect("/hazmat");
       });
   });

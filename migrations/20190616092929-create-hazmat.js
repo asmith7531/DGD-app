@@ -17,6 +17,9 @@ module.exports = {
       class: {
         type: Sequelize.INTEGER
       },
+      pg: {
+        type: Sequelize.INTEGER
+      },
       packingInst: {
         type: Sequelize.INTEGER
       },

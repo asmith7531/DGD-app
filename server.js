@@ -12,10 +12,13 @@ app.use(express.static(__dirname + "/public"));
 app.engine(
   "handlebars",
   exphbs({
-    defaultLayout: "main"
+    defaultLayout: "main",
+    layoutsDir: __dirname + '/views/layouts/',
+    partialsDir: __dirname + '/views/partials/'
   })
 );
 app.set("view engine", "handlebars");
+
 
 // Routes
 require("./routes/html-routes")(app);

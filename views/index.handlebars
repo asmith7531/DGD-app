@@ -2,34 +2,42 @@
 	<div class="bg-contact2">
 		<div class="container-contact2">
 			<div class="wrap-contact2 col-lg-3">
-				<form class="contact2-form" action="POST">
+				<form class="contact2-form" method="POST" action="/api/create-location">
 					<span class="contact2-form-title">
 						Shipment
 					</span>
-					<div class="wrap-input2 validate-input" data-validate="Valid email is required: ex@abc.xyz">
+					<div class="wrap-input2">
+						<input class="input2 country" id="custID" name="custID" type="text">
+						<span class="focus-input2" data-placeholder="Customer ID"></span>
+					</div>
+					<div class="wrap-input2">
 						<input class="input2 country" id="country" name="country" type="text">
 						<span class="focus-input2" data-placeholder="Country"></span>
 					</div>
-					<div class="wrap-input2 validate-input" data-validate="Name is required">
+					<div class="wrap-input2">
 						<input class="input2 address1" name="address1" type="text">
 						<span class="focus-input2" data-placeholder="Address 1"></span>
 					</div>
-					<div class="wrap-input2 validate-input" data-validate="Name is required">
+					<div class="wrap-input2">
 						<input class="input2 address2" type="text" name="address2">
 						<span class="focus-input2" data-placeholder="Address 2"></span>
 					</div>
-					<div class="wrap-input2 validate-input" data-validate="Name is required">
+					<div class="wrap-input2">
 						<input class="input2 city" type="text" name="city">
 						<span class="focus-input2" data-placeholder="City"></span>
 					</div>
-					<div class="wrap-input2 validate-input" data-validate="Name is required">
+					<div class="wrap-input2">
+						<input class="input2 zipcode" type="number" name="zipcode">
+						<span class="focus-input2" data-placeholder="Zipcode"></span>
+					</div>
+					<div class="wrap-input2">
 						<input class="input2 region" type="text" name="region">
 						<span class="focus-input2" data-placeholder="State/Province/Region"></span>
 					</div>
 					<div class="container-contact2-form-btn">
 						<div class="wrap-contact2-form-btn">
 							<div class="contact2-form-bgbtn"></div>
-							<button class="contact2-form-btn" type="button" href="/api/create-location" id="addNewLocationBtn">
+							<button class="contact2-form-btn" type="submit" id="addNewLocationBtn">
 								Add New Destination
 							</button>
 						</div>
@@ -45,7 +53,7 @@
 						<input class="input2 date" name="date" type="date">
 						<span class="focus-input2" data-placeholder=""></span>
 					</div>
-					<div class="wrap-input2 validate-input" data-validate="Name is required">
+					<div class="wrap-input2">
 						<input class="input2 po" type="number" name="po">
 						<span class="focus-input2" data-placeholder="Order Number"></span>
 					</div>
@@ -53,7 +61,7 @@
 						<input class="input2 batchNum" type="text">
 						<span class="focus-input2" data-placeholder="Lot Number"></span>
 					</div>
-					<div class="wrap-input2 validate-input" data-validate="Name is required">
+					<div class="wrap-input2">
 						<input class="number input2 bottles" type="text">
 						<span class="focus-input2" data-placeholder="Bottles"></span>
 					</div>
@@ -101,7 +109,7 @@
 						<div class="container-contact2-form-btn">
 							<div class="wrap-contact2-form-btn">
 								<div class="contact2-form-bgbtn overpackit"></div>
-								<button class="contact2-form-btn overpack" id="overpackBtn" type="button">
+								<button class="contact2-form-btn overpack" id="overpackBtn" type="submit">
 									Overpack This</button>
 							</div>
 						</div>

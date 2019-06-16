@@ -1,7 +1,6 @@
-'use strict';
 module.exports = {
   up: (queryInterface, Sequelize) => {
-    return queryInterface.createTable('shipments', {
+    return queryInterface.createTable("shipments", {
       id: {
         allowNull: false,
         autoIncrement: true,
@@ -29,16 +28,16 @@ module.exports = {
       iop: {
         type: Sequelize.INTEGER
       },
-      4 x1: {
+      "4x1": {
         type: Sequelize.INTEGER
       },
-      4 x4: {
+      "4x4": {
         type: Sequelize.INTEGER
       },
-      2 x10: {
+      "2x10": {
         type: Sequelize.INTEGER
       },
-      6 x1: {
+      "6x1": {
         type: Sequelize.INTEGER
       },
       cao: {
@@ -55,6 +54,6 @@ module.exports = {
     });
   },
   down: (queryInterface, Sequelize) => {
-    return queryInterface.dropTable('shipments');
+    return queryInterface.dropTable("shipments");
   }
 };

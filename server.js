@@ -6,7 +6,6 @@ var app = express();
 var PORT = process.env.PORT || 8080;
 
 app.use(express.json());
-app.use(express.urlencoded()); // to support url encoded bodies
 app.use(express.static(__dirname + "/public"));
 
 // Handlebars

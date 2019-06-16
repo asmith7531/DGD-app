@@ -6,10 +6,6 @@
 					<span class="contact2-form-title">
 						Shipment
 					</span>
-					<div class="wrap-input2" data-validate="Name is required">
-						<input class="input2 date" name="date" type="date">
-						<span class="focus-input2" data-placeholder=""></span>
-					</div>
 					<div class="wrap-input2 validate-input" data-validate="Valid email is required: ex@abc.xyz">
 						<input class="input2 country" id="country" name="country" type="text">
 						<span class="focus-input2" data-placeholder="Country"></span>
@@ -33,8 +29,8 @@
 					<div class="container-contact2-form-btn">
 						<div class="wrap-contact2-form-btn">
 							<div class="contact2-form-bgbtn"></div>
-							<button class="contact2-form-btn" type="button" id="addNewLocationBtn">
-								Add Destination
+							<button class="contact2-form-btn" type="button" href="/api/create-location" id="addNewLocationBtn">
+								Add New Destination
 							</button>
 						</div>
 					</div>
@@ -45,6 +41,10 @@
 					<span class="contact2-form-title">
 						Order Entry
 					</span>
+					<div class="wrap-input2" data-validate="Name is required">
+						<input class="input2 date" name="date" type="date">
+						<span class="focus-input2" data-placeholder=""></span>
+					</div>
 					<div class="wrap-input2 validate-input" data-validate="Name is required">
 						<input class="input2 po" type="number" name="po">
 						<span class="focus-input2" data-placeholder="Order Number"></span>
@@ -94,11 +94,8 @@
 								<th>IOP</th>
 							</tr>
 						</thead>
-						<!--Table head-->
 						<!--Table body-->
-						<tbody id="overpackOutput">
-						</tbody>
-						<!--Table body-->
+						<tbody id="overpackOutput"></tbody>
 					</table>
 					<div>
 						<div class="container-contact2-form-btn">
@@ -108,7 +105,6 @@
 									Overpack This</button>
 							</div>
 						</div>
-
 					</div>
 					<table id="tablePreview" class="table table-hover">
 						<!--Table head-->
@@ -120,11 +116,8 @@
 								<th>6x1</th>
 							</tr>
 						</thead>
-						<!--Table head-->
 						<!--Table body-->
-						<tbody id="boxOutput">
-						</tbody>
-						<!--Table body-->
+						<tbody id="boxOutput"></tbody>
 					</table>
 				</div>
 				<!--Table-->
@@ -144,34 +137,9 @@
 						<th>Partial Box Vol (L)</th>
 					</tr>
 				</thead>
-				<!--Table head-->
-				<!--Table body-->
-				<tbody id="output">
-
-				</tbody>
-				<!--Table body-->
+				<!--table body-->
+				<tbody id="output"></tbody>
 			</table>
 		</div>
 	</div>
-
-	<!--===============================================================================================-->
-	<script src="../assets/vendor/jquery/jquery-3.2.1.min.js"></script>
-	<!--===============================================================================================-->
-	<script src="../assets/vendor/bootstrap/js/popper.js"></script>
-	<script src="../assets/vendor/bootstrap/js/bootstrap.min.js"></script>
-	<!--===============================================================================================-->
-	<script src="../assets/vendor/select2/select2.min.js"></script>
-	<script src="https://cdnjs.cloudflare.com/ajax/libs/lodash.js/4.17.11/lodash.min.js"></script>
-	<!--===============================================================================================-->
-	<script src="../js/main.js"></script>
-	<script src="../js/logic.js"></script>
-	<!-- Global site tag (gtag.js) - Google Analytics -->
-	<script>
-		window.dataLayer = window.dataLayer || [];
-		function gtag() {
-			dataLayer.push(arguments);
-		}
-		gtag('js', new Date());
-		gtag('config', 'UA-23581568-13');
-	</script>
 </body>

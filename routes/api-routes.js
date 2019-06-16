@@ -13,7 +13,6 @@ module.exports = app => {
   });
   app.post("/api/create-location", (req, res) => {
     models.AddressdbAddressBook.create({
-      date: req.body.date,
       country: req.body.country,
       address1: req.body.address1,
       address2: req.body.address2,
@@ -21,6 +20,22 @@ module.exports = app => {
       region: req.body.region
     }).then(dbAddressBook => {
       res.json(dbAddressBook);
+    });
+  });
+
+  // SHOW LIST OF SHIPMENTS
+  app.get("/shipments", function(req, res, next) {
+    req.getConnection(function(error, conn) {
+      conn.query("SELECT * FROM shipments ORDER BY id DESC", function(
+        err,
+        rows,
+        fields
+      ) {
+        res.render("shipments", {
+          title: "Shipments",
+          data: rows
+        });
+      });
     });
   });
   //deletes from the box size table at a specific id

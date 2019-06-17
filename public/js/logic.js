@@ -212,10 +212,7 @@ $(document).ready(function() {
               overpackList.medium += 1;
               boxTotals[i] = boxTotals[i] - overpackDims.overpack4x1.medium;
               break;
-            } else if (
-              boxTotals[i] > 4 &&
-              boxTotals[i] <= overpackDims.overpack4x1.small
-            ) {
+            } else if (boxTotals[i] > 4) {
               overpackList.small += 1;
               boxTotals[i] = boxTotals[i] - overpackDims.overpack4x1.small;
               break;

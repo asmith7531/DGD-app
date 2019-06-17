@@ -11,11 +11,17 @@ module.exports = app => {
       console.log(response);
     });
   });
+
   app.get("/api/addressbook/:id", (req, res) => {
-    models.AddressBooks.findAll({}).then(response => {
+    models.AddressBooks.findOne({
+      where: {
+        id: id
+      }
+    }).then(response => {
       res.json(response);
     });
   });
+  //add new contact
   app.post("/api/create-location", (req, res) => {
     models.AddressBooks.create({
       custID: req.body.custID,
@@ -25,12 +31,12 @@ module.exports = app => {
       city: req.body.city,
       zipcode: req.body.zipcode
     }).then(dbAddressBook => {
-      res.redirect("/");
+      res.redirect("/addressbook");
     });
   });
+  //create new hazmat
   app.post("/api/create-hazmat", (req, res) => {
-    models.hazmats
-      .create({
+    models.hazmats.create({
         unNum: req.body.unNum,
         name: req.body.name,
         class: req.body.class,
@@ -42,6 +48,28 @@ module.exports = app => {
         res.redirect("/hazmat");
       });
   });
+  app.delete("/api/delete-hazmat/:id", (req, res) => {
+    models.hazmats.destroy({
+        where: {
+          id: id
+        }
+      })
+      .then(response => {
+        res.json(response);
+        res.redirect("/hazmat")
+      });
+  });
+  app.delete("/api/delete-address/:id", (req, res) => {
+    models.AddressBooks.destroy({
+        where: {
+          id: id
+        }
+      })
+      .then(response => {
+        res.json(response);
+        res.redirect("addressbooks")
+      });
+  });
   app.post("/api/create-order", (req, res) => {
     models.AddressBooks.create({
       date: req.body.date,
@@ -51,7 +79,7 @@ module.exports = app => {
       boxSize: req.body.boxSize,
       hazmat: req.body.hazmat
     }).then(dbAddressBook => {
-      res.redirect("/");
+      res.redirect("home");
     });
   });
   app.get("/api/orders", (req, res) => {

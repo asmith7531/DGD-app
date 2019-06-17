@@ -1,0 +1,144 @@
+<div class="bg-contact2">
+	<div class="container-contact2">
+		<div class="wrap-contact2 col-lg-3">
+			<form class="contact2-form">
+				<span class="contact2-form-title">
+					Select Existing Destination
+				</span>
+				<select class="form-control address">
+					<option>select one</option>
+					{{#each AddressBooks}}
+					<option value="{{this.custID}}">
+						{{this.custID}}
+					</option>
+					{{/each}}
+				</select>
+				<div class="container-contact2-form-btn">
+					<div class="wrap-contact2-form-btn">
+						<div class="contact2-form-bgbtn"></div>
+						<button class="contact2-form-btn" type="button" id="addNewLocationBtn">
+							Select This Destination
+						</button>
+					</div>
+				</div>
+				<h2 class="contact2-form-title" style="padding-top:40px">Or<br> Create a New One</h2>
+				<div class="container-contact2-form-btn">
+					<div class="wrap-contact2-form-btn">
+						<div class="contact2-form-bgbtn"></div>
+						<a href="addressbook">
+							<button class="contact2-form-btn" type="button" id="addNewLocationBtn">
+								Create New Destination
+							</button>
+						</a>
+					</div>
+				</div>
+			</form>
+		</div>
+		<div class="wrap-contact2 col-lg-3">
+			<form class="contact2-form validate-form" method="POST" action="/api/create-order">
+				<span class="contact2-form-title">
+					Order Entry
+				</span>
+				<div class="wrap-input2" data-validate="Name is required">
+					<input class="input2 date" name="date" type="date">
+					<span class="focus-input2" data-placeholder=""></span>
+				</div>
+				<div class="wrap-input2">
+					<input class="input2 po" type="number" name="po">
+					<span class="focus-input2" data-placeholder="Order Number"></span>
+				</div>
+				<div class="wrap-input2 validate-input" data-validate="">
+					<input class="input2 batchNum" type="text">
+					<span class="focus-input2" data-placeholder="Lot Number"></span>
+				</div>
+				<div class="wrap-input2">
+					<input class="number input2 bottles" type="text">
+					<span class="focus-input2" data-placeholder="Bottles"></span>
+				</div>
+				<small class="boxSize text">Box Size:</small>
+				<select class="form-control" id="boxOption">
+					<option>4x1</option>
+					<option>4x4</option>
+					<option>2x10</option>
+					<option>6x1</option>
+				</select>
+				<small class="text">Hazardous Material:</small>
+				<select class="form-control hazmat">
+					{{#each hazmats}}
+					<option value="{{this.name}}">
+						{{this.name}}
+					</option>
+					{{/each}}
+				</select>
+				<div class="container-contact2-form-btn">
+					<div class="wrap-contact2-form-btn">
+						<div class="contact2-form-bgbtn"></div>
+						<button class="contact2-form-btn addBatchBtn" type="button">
+							Add Item
+						</button>
+					</div>
+				</div>
+			</form>
+		</div>
+		<div class="stuff">
+			<!--Table-->
+			<div id="table2">
+				<table id="tablePreview" class="table table-hover">
+					<!--Table head-->
+					<thead>
+						<tr>
+							<th>Large</th>
+							<th>Medium</th>
+							<th>Small</th>
+							<th>IOP</th>
+						</tr>
+					</thead>
+					<!--Table body-->
+					<tbody id="overpackOutput"></tbody>
+				</table>
+				<div>
+					<div class="container-contact2-form-btn">
+						<div class="wrap-contact2-form-btn">
+							<div class="contact2-form-bgbtn overpackit"></div>
+							<button class="contact2-form-btn overpack" id="overpackBtn" type="submit">
+								Overpack This</button>
+						</div>
+					</div>
+				</div>
+				<table id="tablePreview" class="table table-hover">
+					<!--Table head-->
+					<thead>
+						<tr>
+							<th>4x1</th>
+							<th>4x4</th>
+							<th>2x10</th>
+							<th>6x1</th>
+						</tr>
+					</thead>
+					<!--Table body-->
+					<tbody id="boxOutput"></tbody>
+				</table>
+			</div>
+			<!--Table-->
+			<div class="output">
+			</div>
+		</div>
+
+		<table id="tablePreview" class="table table-hover">
+			<!--Table head-->
+			<thead>
+				<tr>
+					<th>Order Number</th>
+					<th>Batch</th>
+					<th>Hazmat</th>
+					<th>Box Size</th>
+					<th>Box Vol (L)</th>
+					<th>Full Box Count</th>
+					<th>Partial Box Vol (L)</th>
+				</tr>
+			</thead>
+			<!--table body-->
+			<tbody id="output"></tbody>
+		</table>
+	</div>
+</div>

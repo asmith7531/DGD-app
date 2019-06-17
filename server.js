@@ -29,7 +29,7 @@ require("./routes/api-routes")(app);
 
 //set to true to force the DB to reset during tests/development
 var syncOptions = {
-  force: false
+  force: true
 };
 
 // Starting the server, syncing our models ------------------------------------/

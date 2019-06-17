@@ -1,18 +1,20 @@
+// require("../models")
 module.exports = (sequelize, DataTypes) => {
-  const orders = sequelize.define(
-    "orders",
+  const Orders = sequelize.define(
+    "Orders",
     {
       date: DataTypes.DATE,
       orderNum: DataTypes.INTEGER,
       lotNum: DataTypes.STRING,
       bottles: DataTypes.INTEGER,
       boxSize: DataTypes.STRING,
-      hazmat: DataTypes.STRING
+      hazmat: DataTypes.STRING,
     },
-    {}
+  
   );
-  orders.associate = function(models) {
-    // associations can be defined here
+  Orders.associate = function(models) {
+    Orders.hasOne(models.Hazmats);
+    Orders.belongsTo(models.Shipments,{foreignKey: 'local_shipment_id', targetKey: 'id'});
   };
-  return orders;
+  return Orders;
 };

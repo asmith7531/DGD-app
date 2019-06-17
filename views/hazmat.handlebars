@@ -6,10 +6,10 @@
         <div class="container-contact2-form-btn">
           <div class="wrap-contact2-form-btn">
             <div class="contact2-form-bgbtn"></div>
-            <button class="contact2-form-btn" type="button" data-toggle="modal" datatarget="#newhazModal"
-              id="addNewHazmat">
-              Add New Hazmat
-            </button>
+            <button type="button"  class="btn btn-primary" data-toggle="modal"
+                data-target="#newHazModal">
+               Add New Hazmat
+              </button>
           </div>
         </div>
       </div>
@@ -29,7 +29,7 @@
         </thead>
         <!--table body-->
         <tbody id="output">
-          {{#each hazmats}}
+          {{#each Hazmats}}
           <tr>
             <td>{{this.id}}</td>
             <td>{{this.unNum}}</td>
@@ -75,7 +75,8 @@
           </span>
           <div class="wrap-input2">
             <input class="input2 unNum" id="unNum" name="unNum" type="text">
-            <span class="focus-input2" data-placeholder="United Nations Number"></span>
+            <span class="focus-input2" data-placeholder="United Nations Number">{{this.unNum}}</span>
+            {{!-- Trying to make this autocomplete with handlebars but i can not seem to reference it correctlY  FUCK  --}}
           </div>
           <div class="wrap-input2">
             <input class="input2 name" id="name" name="name" type="text">

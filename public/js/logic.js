@@ -26,9 +26,9 @@ $(document).ready(function() {
   // console.log(i)
   //submit button function and click event,
   $(".addBatchBtn").click(() => {
-    if (shipment === undefined) {
-      alert("Please enter a Destination first!");
-    }
+    // if (shipment === undefined) {
+    //   alert("Please enter a Destination first!");
+    // }
     i++;
     // console.log(i)
     //creates an object for the current batch

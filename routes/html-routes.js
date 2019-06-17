@@ -6,8 +6,8 @@ module.exports = function(app) {
   // Load login page
   app.get("/home", function(req, res) {
     models.AddressBooks.findAll({}).then(function(addresses) {
-      models.hazmats.findAll({}).then(response => {
-        res.render("home", { hazmats: response, AddressBooks: addresses });
+      models.Hazmats.findAll({}).then(response => {
+        res.render("home", { Hazmats: response, AddressBooks: addresses });
       });
     });
   });
@@ -19,14 +19,18 @@ module.exports = function(app) {
     // myContacts.state = dataValues.AddressBooks.state;
   });
   app.get("/hazmat", function(req, res) {
-    models.hazmats.findAll({}).then(response => {
-      res.render("hazmat", { hazmats: response });
+    models.Hazmats.findAll({}).then(response => {
+      res.render("hazmat", { Hazmats: response });
     });
   });
   //route to render the refereces page
   app.get("/references", function(req, res) {
     res.render("references");
   });
+    //route to render the refereces page
+    app.get("/shipments", function(req, res) {
+      res.render("shipments");
+    });
   //this route renders the home page
   app.get("/home", function(req, res) {
     res.render("home");

@@ -1,10 +1,9 @@
-<div class="bg-contact2">
-	<div class="container-contact2">
-		<div class="wrap-contact2 col-lg-3">
-			<form class="contact2-form">
+		<div class="wrap-contact2 d-inline-flex">
+			<form class="contact2-form validate-form col-lg-6" method="POST" action="/api/create-order">
 				<span class="contact2-form-title">
-					Select Existing Destination
+					Order Entry
 				</span>
+				<small class="boxSize text">Destination</small>
 				<select class="form-control address">
 					<option>select one</option>
 					{{#each AddressBooks}}
@@ -21,24 +20,6 @@
 						</button>
 					</div>
 				</div>
-				<h2 class="contact2-form-title" style="padding-top:40px">Or<br> Create a New One</h2>
-				<div class="container-contact2-form-btn">
-					<div class="wrap-contact2-form-btn">
-						<div class="contact2-form-bgbtn"></div>
-						<a href="addressbook">
-							<button class="contact2-form-btn" type="button" id="addNewLocationBtn">
-								Create New Destination
-							</button>
-						</a>
-					</div>
-				</div>
-			</form>
-		</div>
-		<div class="wrap-contact2 col-lg-3">
-			<form class="contact2-form validate-form" method="POST" action="/api/create-order">
-				<span class="contact2-form-title">
-					Order Entry
-				</span>
 				<div class="wrap-input2" data-validate="Name is required">
 					<input class="input2 date" name="date" type="date">
 					<span class="focus-input2" data-placeholder=""></span>
@@ -64,7 +45,7 @@
 				</select>
 				<small class="text">Hazardous Material:</small>
 				<select class="form-control hazmat">
-					{{#each hazmats}}
+					{{#each Hazmats}}
 					<option value="{{this.name}}">
 						{{this.name}}
 					</option>
@@ -78,52 +59,29 @@
 						</button>
 					</div>
 				</div>
-			</form>
-		</div>
-		<div class="stuff">
-			<!--Table-->
-			<div id="table2">
-				<table id="tablePreview" class="table table-hover">
-					<!--Table head-->
-					<thead>
-						<tr>
-							<th>Large</th>
-							<th>Medium</th>
-							<th>Small</th>
-							<th>IOP</th>
-						</tr>
-					</thead>
-					<!--Table body-->
-					<tbody id="overpackOutput"></tbody>
-				</table>
-				<div>
-					<div class="container-contact2-form-btn">
+				<div class="container-contact2-form-btn">
 						<div class="wrap-contact2-form-btn">
 							<div class="contact2-form-bgbtn overpackit"></div>
-							<button class="contact2-form-btn overpack" id="overpackBtn" type="submit">
-								Overpack This</button>
+							{{!-- <form method="POST" action="/shipments"> --}}
+							<button class="contact2-form-btn overpack" id="overpackBtn" type="button">
+								Overpack This
+							</button>
+							{{!-- </form> --}}
 						</div>
 					</div>
+				<div class="container-contact2-form-btn">
+					<div class="wrap-contact2-form-btn">
+						<div class="contact2-form-bgbtn"></div>
+						<a href="addressbook">
+							<button class="contact2-form-btn" type="button" id="addNewLocationBtn">
+								Create New Address
+							</button>
+						</a>
+					</div>
 				</div>
-				<table id="tablePreview" class="table table-hover">
-					<!--Table head-->
-					<thead>
-						<tr>
-							<th>4x1</th>
-							<th>4x4</th>
-							<th>2x10</th>
-							<th>6x1</th>
-						</tr>
-					</thead>
-					<!--Table body-->
-					<tbody id="boxOutput"></tbody>
-				</table>
-			</div>
-			<!--Table-->
-			<div class="output">
-			</div>
-		</div>
-
+				</div>
+			</form>
+		<div class="d-flex">
 		<table id="tablePreview" class="table table-hover">
 			<!--Table head-->
 			<thead>
@@ -140,5 +98,42 @@
 			<!--table body-->
 			<tbody id="output"></tbody>
 		</table>
+		</div>
+		</div>
+			<!--Table-->
+			<div class="output">
+			</div>
+		</div>
 	</div>
 </div>
+		<div class="d-flex d-inline-flex">
+			<!--Table-->
+			<div id="table2">
+				<table id="tablePreview" class="table table-hover">
+					<!--Table head-->
+					<thead>
+						<tr>
+							<th>Large</th>
+							<th>Medium</th>
+							<th>Small</th>
+							<th>IOP</th>
+						</tr>
+					</thead>
+					<!--Table body-->
+					<tbody id="overpackOutput"></tbody>
+				</table>
+				<div>
+				<table id="tablePreview" class="table table-hover">
+					<!--Table head-->
+					<thead>
+						<tr>
+							<th>4x1</th>
+							<th>4x4</th>
+							<th>2x10</th>
+							<th>6x1</th>
+						</tr>
+					</thead>
+					<!--Table body-->
+					<tbody id="boxOutput"></tbody>
+				</table>
+			</div>

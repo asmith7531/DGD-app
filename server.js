@@ -8,17 +8,20 @@ var PORT = process.env.PORT || 8080;
 app.use(express.json());
 app.use(express.static(__dirname + "/public"));
 
+// Sets up the Express app to handle data parsing
+app.use(express.urlencoded({ extended: true }));
+app.use(express.json());
+
 // Handlebars
 app.engine(
   "handlebars",
   exphbs({
     defaultLayout: "main",
-    layoutsDir: __dirname + '/views/layouts/',
-    partialsDir: __dirname + '/views/partials/'
+    layoutsDir: __dirname + "/views/layouts/",
+    partialsDir: __dirname + "/views/partials/"
   })
 );
 app.set("view engine", "handlebars");
-
 
 // Routes
 require("./routes/html-routes")(app);

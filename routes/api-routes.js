@@ -6,13 +6,9 @@ var models = require("../models");
 //============================
 module.exports = app => {
   //============================================== Address Book Routes
-
-  let contacts;
   app.get("/api/addressbook", (req, res) => {
     models.AddressBooks.findAll({}).then(function(response) {
       console.log(response);
-      let myContacts;
-      myContacts = response.dataValues;
     });
   });
   app.get("/api/addressbook/:id", (req, res) => {
@@ -33,7 +29,8 @@ module.exports = app => {
     });
   });
   app.post("/api/create-hazmat", (req, res) => {
-    models.hazmats.create({
+    models.hazmats
+      .create({
         unNum: req.body.unNum,
         name: req.body.name,
         class: req.body.class,
@@ -42,7 +39,6 @@ module.exports = app => {
         packingInstCAO: req.body.packingInstCAO
       })
       .then(response => {
-      
         res.redirect("/hazmat");
       });
   });

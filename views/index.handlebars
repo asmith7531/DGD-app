@@ -2,43 +2,32 @@
 	<div class="bg-contact2">
 		<div class="container-contact2">
 			<div class="wrap-contact2 col-lg-3">
-				<form class="contact2-form" method="POST" action="/api/create-location">
+				<form class="contact2-form">
 					<span class="contact2-form-title">
-						Destination
+						Select Existing Destination
 					</span>
-					<div class="wrap-input2">
-						<input class="input2 country" id="custID" name="custID" type="text">
-						<span class="focus-input2" data-placeholder="Customer ID"></span>
-					</div>
-					<div class="wrap-input2">
-						<input class="input2 country" id="country" name="country" type="text">
-						<span class="focus-input2" data-placeholder="Country"></span>
-					</div>
-					<div class="wrap-input2">
-						<input class="input2 address1" name="address1" type="text">
-						<span class="focus-input2" data-placeholder="Address 1"></span>
-					</div>
-					<div class="wrap-input2">
-						<input class="input2 address2" type="text" name="address2">
-						<span class="focus-input2" data-placeholder="Address 2"></span>
-					</div>
-					<div class="wrap-input2">
-						<input class="input2 city" type="text" name="city">
-						<span class="focus-input2" data-placeholder="City"></span>
-					</div>
-					<div class="wrap-input2">
-						<input class="input2 zipcode" type="number" name="zipcode">
-						<span class="focus-input2" data-placeholder="Zipcode"></span>
-					</div>
-					<div class="wrap-input2">
-						<input class="input2 region" type="text" name="region">
-						<span class="focus-input2" data-placeholder="State/Province/Region"></span>
-					</div>
+					<select class="form-control address">
+						<option>select one</option>
+						{{#each AddressBooks}}
+						<option value="{{this.custID}}">
+							{{this.custID}}
+						</option>
+						{{/each}}
+					</select>
 					<div class="container-contact2-form-btn">
 						<div class="wrap-contact2-form-btn">
 							<div class="contact2-form-bgbtn"></div>
-							<button class="contact2-form-btn" type="submit" id="addNewLocationBtn">
-								Add New Destination
+							<button class="contact2-form-btn" type="button" id="addNewLocationBtn">
+								Select This Destination
+							</button>
+						</div>
+					</div>
+					<h2 class="contact2-form-title" style="padding-top:40px">Or<br> Create a New One</h2>
+					<div class="container-contact2-form-btn">
+						<div class="wrap-contact2-form-btn">
+							<div class="contact2-form-bgbtn"></div>
+							<button class="contact2-form-btn" type="button" href="/addressbook" id="addNewLocationBtn">
+								Create New Destination
 							</button>
 						</div>
 					</div>
@@ -74,15 +63,16 @@
 					</select>
 					<small class="text">Hazardous Material:</small>
 					<select class="form-control hazmat">
-						<option>2-Methoxy-1-methylethyl acetate</option>
-						<option>2-Methoxy-1-methylethyl acetate, 1-methoxy-2-propanol</option>
-						<option>Tetramethylammonium hydroxide</option>
-						<option>Dibutyl Ethers</option>
+						{{#each hazmats}}
+						<option value="{{this.name}}">
+							{{this.name}}
+						</option>
+						{{/each}}
 					</select>
 					<div class="container-contact2-form-btn">
 						<div class="wrap-contact2-form-btn">
 							<div class="contact2-form-bgbtn"></div>
-							<button class="contact2-form-btn addBatchBtn" type="submit">
+							<button class="contact2-form-btn addBatchBtn" type="button">
 								Add Item
 							</button>
 						</div>
@@ -132,6 +122,7 @@
 				<div class="output">
 				</div>
 			</div>
+
 			<table id="tablePreview" class="table table-hover">
 				<!--Table head-->
 				<thead>
@@ -150,4 +141,5 @@
 			</table>
 		</div>
 	</div>
+
 </body>

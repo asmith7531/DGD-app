@@ -6,7 +6,6 @@ $(document).ready(function() {
     this.address2 = $(".address2").val();
     this.city = $(".city").val();
     this.region = $(".region").val();
-    orders = [];
   };
   var shipment;
   //creates an object for the current batch
@@ -16,23 +15,25 @@ $(document).ready(function() {
     this.hazmat = $(".hazmat").val();
     this.bottles = $(".bottles").val();
   };
-  $("#addNewLocationBtn").click(function addLocation() {
+  $("#addNewLocationBtn").click(addLocation => {
     shipment = new Location();
     // console.log(shipment)
   });
   //iterator
   var i = 0;
   var orders = [];
+
   // console.log(i)
   //submit button function and click event,
-  $(".addBatchBtn").click(function addBatch() {
-    // if (shipment === undefined) {
-    //   alert("Please enter a Destination first!");
-    // }
+  $(".addBatchBtn").click(() => {
+    if (shipment === undefined) {
+      alert("Please enter a Destination first!");
+    }
     i++;
     // console.log(i)
     //creates an object for the current batch
     orders[i] = new Batch();
+
     shipment.orders = orders;
     // console.log(shipment)
     //declaring the var box to equal the box type selected index of the drop down
@@ -123,17 +124,17 @@ $(document).ready(function() {
     $("#output").append(newtr);
   });
   //overpack function which runs once our overpack button is clicked
-  $(".overpack").click(function overpack() {
+  $(".overpack").click(overpack => {
     //pushing the orders to a separate list to make them easier to work with using the Lodash library
     const orderList = [];
     for (var i = 1; i < shipment.orders.length; i++) {
       orderList.push(shipment.orders[i]);
     }
     //groups the orders by hazmat, box dims, batch
-    const groupsDGD = _.groupBy(orderList, function(orderList) {
-      return `${
-        orderList.hazmat
-      }-${orderList.fullBoxVolume}-${orderList.batchNum}`;
+    const groupsDGD = _.groupBy(orderList, orderList => {
+      return `${orderList.hazmat}-${orderList.fullBoxVolume}-${
+        orderList.batchNum
+      }`;
     });
     // console.log(groupsDGD)
     var boxTotals = {
@@ -142,7 +143,7 @@ $(document).ready(function() {
       "2x10": 0,
       "6x1": 0
     };
-    const consolidateList = _.groupBy(orderList, function(orderList) {
+    const consolidateList = _.groupBy(orderList, orderList => {
       return `${orderList.boxChoice}`;
     });
     // console.log(consolidateList)

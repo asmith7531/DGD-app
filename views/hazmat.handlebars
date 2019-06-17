@@ -1,8 +1,8 @@
-<div class="bg-contact2">
-  <div class="wrap-contact2 ">
-    <form class="contact2-form col-lg-6" method="POST" action="/api/create-hazmat">
+<div class="bg-contact2 ">
+  <div class="wrap-contact2 d-flex" style="width:90%;">
+    <form class="contact2-form col-lg-3" method="POST" action="/api/create-hazmat">
       <span class="contact2-form-title">
-        New Hazmat
+        Add New Hazmat
       </span>
       <div class="wrap-input2">
         <input class="input2 unNum" id="unNum" name="unNum" type="text">
@@ -32,38 +32,39 @@
         <div class="wrap-contact2-form-btn">
           <div class="contact2-form-bgbtn"></div>
           <button class="contact2-form-btn" type="submit" id="addNewHazmat">
-            Add New Hazmat
+            Upload New Hazmat
           </button>
         </div>
       </div>
     </form>
-     <div>
-      <h1>
-     {{#each hazmats}}
-     {{!-- {{#}} --}}
-    <ul>
-     <li>
-       UN Number: : {{this.unNum}}
-     </li>
-       <li>
-       Technical Name: {{this.name}}
-     </li>
-       <li>
-       Hazard Class {{this.class}}
-     </li>
-       <li>
-       Packing Group:  {{this.pg}}
-     </li>
-      <li>
-       Packing Instructions: {{this.packingInst}}
-     </li>
-      <li>
-       Packing Instructions CAO: {{this.packingInstCAO}}
-     </li>
-    </ul>
-    <br>
-      {{/each}}
-      </h1>
+    <div style="margin:10%">
+      <h1 class="contact2-form-title">Hazmat Database</h1>
+      <table id="tablePreview" class="table table-hover ">
+        <!--Table head-->
+        <thead>
+          <tr>
+            <th>UN Number</th>
+            <th>Technical Name</th>
+            <th>Hazard Class</th>
+            <th>Packing Group</th>
+            <th>Packing Instructions</th>
+            <th>Packing Instructions CAO</th>
+          </tr>
+        </thead>
+        <!--table body-->
+        <tbody id="output">
+          {{#each hazmats}}
+          <tr>
+            <td>{{this.unNum}}</td>
+            <td> {{this.name}}</td>
+            <td> {{this.class}}</td>
+            <td> {{this.pg}}</td>
+            <td>{{this.packingInst}}</td>
+            <td> {{this.packingInstCAO}}</td>
+          </tr>
+          {{/each}}
+        </tbody>
+      </table>
     </div>
-    </div>
-    </div>
+  </div>
+</div>

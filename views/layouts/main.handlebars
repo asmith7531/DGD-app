@@ -18,25 +18,52 @@
 	<!--===============================================================================================-->
 	<link rel="stylesheet" type="text/css" href="../assets/css/util.css">
 	<link rel="stylesheet" type="text/css" href="../assets/css/main.css">
+	<style>
+		.vl {
+			border-left: 3px solid white;
+			height: 30px;
+			padding-top: 35px
+		}
+
+		table.dataTable thead .sorting:after,
+		table.dataTable thead .sorting:before,
+		table.dataTable thead .sorting_asc:after,
+		table.dataTable thead .sorting_asc:before,
+		table.dataTable thead .sorting_asc_disabled:after,
+		table.dataTable thead .sorting_asc_disabled:before,
+		table.dataTable thead .sorting_desc:after,
+		table.dataTable thead .sorting_desc:before,
+		table.dataTable thead .sorting_desc_disabled:after,
+		table.dataTable thead .sorting_desc_disabled:before {
+			bottom: .5em;
+		}
+	</style>
 	<!--===============================================================================================-->
 </head>
 
 <body>
 	<nav class="navbar fixed-top navbar-expand-lg navbar-dark scrolling-navbar ">
-		<a class="navbar-brand" style="padding-left:5%; padding-right:5%" href="http://www.rinchem.com/">
-			<div class="logo"><img src="../assets/images/logoFullTransparent.png" height="60" class="d-inline-block align-top"
-					alt="mdb logo"></div>
+		<a class="navbar-brand" href="http://www.rinchem.com/" target="_blank">
+			<div style="padding-left:20%; padding-right:20%; width:125pt" class="logo"><img
+					src="../assets/images/logoFullTransparent.png" height="80" class="d-inline-block align-top" alt="mdb logo">
+			</div>
 		</a>
-		<h1 style="color:white">Dangerous Goods Utility</h1>
+		<h1 style="color:white;">Dangerous Goods Utility</h1>
 		<div class="collapse navbar-collapse" id="navbarCollapse">
 			<div class="navbar-nav">
-				<a href="/" class="nav-item nav-link active">Home</a>
-				<a href="/shipments" class="nav-item nav-link">Shipment Lookup</a>
+				<a href="/" class="nav-item nav-link">Home</a>
+				<div class="vl"></div>
+				<a href="/shipments" class="nav-item nav-link">Shipment Manager</a>
+				<div class="vl"></div>
 				<a href="addressbook" class="nav-item nav-link">Address Book</a>
+				<div class="vl"></div>
 				<a href="hazmat" class="nav-item nav-link">Hazardous Materials</a>
-				<a href="#" class="nav-item nav-link">References</a>
+
+				<div class="vl"></div>
+				<a href="#" class="nav-item nav-link">Shipping References</a>
 	</nav>
 	{{{body}}}
+
 	<!--===============================================================================================-->
 	<script src="../assets/vendor/jquery/jquery-3.2.1.min.js"></script>
 	<!--===============================================================================================-->
@@ -46,6 +73,7 @@
 	<script src="../assets/vendor/select2/select2.min.js"></script>
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/lodash.js/4.17.11/lodash.min.js"></script>
 	<!--===============================================================================================-->
+
 	<script src="../js/main.js"></script>
 	<script src="../js/logic.js"></script>
 </body>

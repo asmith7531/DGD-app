@@ -6,6 +6,9 @@
   "scripts": {
     "npm start": "node server.js"
   },
+  "engines": {
+    "node": "12.4.0"
+  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/asmith7531/DGD-app.git"

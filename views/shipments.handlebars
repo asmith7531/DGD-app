@@ -2,13 +2,13 @@
   <div class="wrap-contact2 d-flex justify-content-center" style="width:85%;">
     <div class="container-contact2-form-btn">
       <div>
-        <h1 class="contact2-form-title">Shipment Database</h1>
+        <h1 class="contact2-form-title">Order Database</h1>
         <div class="container-contact2-form-btn">
           <div class="wrap-contact2-form-btn">
             <div class="contact2-form-bgbtn"></div>
             <button type="button" data-id="{{this.id}}" class="btn btn-danger" data-toggle="modal"
                 data-target="#newHazModal">
-               Add New Shipment
+               Search Shipments
               </button>
           </div>
         </div>
@@ -62,39 +62,27 @@
   <div class="modal-dialog" role="document">
     <div class="modal-content">
       <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLabel">Edit Hazmat</h5>
+        <h5 class="modal-title" id="exampleModalLabel">Shipment Lookup</h5>
         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span>
         </button>
       </div>
       <div class="modal-body">
-        <form class="contact2-form col-lg-10" method="POST" action="/api/create-hazmat">
+        <form class="contact2-form col-lg-10" method="get" action="/api/orderSearch">
           <span class="contact2-form-title">
-          Edit Hazmat
+          Search Query
           </span>
           <div class="wrap-input2">
-            <input class="input2 unNum" id="unNum" name="unNum" type="text">
-            <span class="focus-input2" data-placeholder="United Nations Number"></span>
+            <input class="input2 date" id="unNum" name="date" type="text">
+            <span class="focus-input2" data-placeholder="Date"></span>
           </div>
           <div class="wrap-input2">
-            <input class="input2 name" id="name" name="name" type="text">
+            <input class="input2 name" id="name" name="destination" type="text">
             <span class="focus-input2" data-placeholder="Technical Name"></span>
           </div>
-          <div class="wrap-input2">
-            <input class="input2 class" name="class" type="text">
-            <span class="focus-input2" data-placeholder="Hazard Class"></span>
-          </div>
-          <div class="wrap-input2">
-            <input class="input2 pg" name="pg" type="text">
-            <span class="focus-input2" data-placeholder="Packing Group"></span>
-          </div>
-          <div class="wrap-input2">
-            <input class="input2 packingInst" type="text" name="packingInst">
-            <span class="focus-input2" data-placeholder="Packaging Instructions"></span>
-          </div>
-          <div class="wrap-input2">
-            <input class="input2 packingInstCAO" type="text" name="packingInstCAO">
-            <span class="focus-input2" data-placeholder="Packaging Instructions Cargo Aircraft Only"></span>
+           <div class="wrap-input2">
+            <input class="input2 name" id="name" name="orderNum" type="text">
+            <span class="focus-input2" data-placeholder="Technical Name"></span>
           </div>
           <div class="modal-footer">
             <div class="container-contact2-form-btn">
@@ -111,7 +99,7 @@
             <div class="wrap-contact2-form-btn">
               <div class="contact2-form-bgbtn"></div>
               <button class="contact2-form-btn" type="submit" id="addNewHazmat">
-                Submit Changes
+                Search
               </button>
             </div>
           </div>

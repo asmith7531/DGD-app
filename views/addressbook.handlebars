@@ -48,7 +48,8 @@
         <!--Table head-->
         <thead>
           <tr>
-            <th>Customer ID</th>
+            <th>ID</th>
+            <th>Customer Reference</th>
             <th>Country</th>
             <th>Address 1</th>
             <th>Address 2</th>
@@ -60,12 +61,25 @@
         <tbody id="output">
           {{#each AddressBooks}}
           <tr>
+            <td>{{this.id}}</td>
             <td>{{this.custID}}</td>
             <td> {{this.country}}</td>
             <td> {{this.address1}}</td>
             <td> {{this.address2}}</td>
             <td>{{this.city}}</td>
             <td> {{this.zipcode}}</td>
+            <td>
+              <a href="/api/delete-location/{{this.id}}">
+              <button type="submit" class="btn btn-primary">
+                <i class="fas fa-edit"></i>
+              </button>
+              </a>
+            </td>
+            <td>
+              <button type="button" data-id="{{this.id}}" class="btn btn-danger">
+                <i class="fas fa-trash-alt"></i>
+              </button>
+            </td>
           </tr>
           {{/each}}
           <hr>

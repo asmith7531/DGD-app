@@ -26,9 +26,9 @@ $(document).ready(function() {
   // console.log(i)
   //submit button function and click event,
   $(".addBatchBtn").click(() => {
-    if (shipment === undefined) {
-      alert("Please enter a Destination first!");
-    }
+    // if (shipment === undefined) {
+    //   alert("Please enter a Destination first!");
+    // }
     i++;
     // console.log(i)
     //creates an object for the current batch
@@ -212,10 +212,7 @@ $(document).ready(function() {
               overpackList.medium += 1;
               boxTotals[i] = boxTotals[i] - overpackDims.overpack4x1.medium;
               break;
-            } else if (
-              boxTotals[i] > 4 &&
-              boxTotals[i] <= overpackDims.overpack4x1.small
-            ) {
+            } else if (boxTotals[i] > 4) {
               overpackList.small += 1;
               boxTotals[i] = boxTotals[i] - overpackDims.overpack4x1.small;
               break;

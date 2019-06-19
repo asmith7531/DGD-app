@@ -1,6 +1,6 @@
-"use strict";
+require("../models")
 module.exports = (sequelize, DataTypes) => {
-  const hazmat = sequelize.define("hazmats", {
+  const Hazmat = sequelize.define("Hazmats", {
     unNum: DataTypes.INTEGER,
     name: DataTypes.STRING,
     class: DataTypes.INTEGER,
@@ -8,8 +8,8 @@ module.exports = (sequelize, DataTypes) => {
     packingInst: DataTypes.INTEGER,
     packingInstCAO: DataTypes.INTEGER
   });
-  hazmat.associate = function(models) {
-    // associations can be defined here
+  Hazmat.associate = function(models) {
+    
   };
-  return hazmat;
+  return Hazmat;
 };

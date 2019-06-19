@@ -12,6 +12,26 @@ module.exports = {
           zipcode: 08822,
           createdAt: new Date(),
           updatedAt: new Date()
+        },
+        {
+          custID: "Austin's House",
+          country: "United States",
+          address1: "107 Cherryville Hollow Road",
+          address2: "",
+          city: "Flemington",
+          zipcode: 08822,
+          createdAt: new Date(),
+          updatedAt: new Date()
+        },
+        {
+          custID: "Austin's Dad's House",
+          country: "United States",
+          address1: "3015 Ironworks Road",
+          address2: "North Carolina",
+          city: "Riedsville",
+          zipcode: 27320,
+          createdAt: new Date(),
+          updatedAt: new Date()
         }
       ],
       {}

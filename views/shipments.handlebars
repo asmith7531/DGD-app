@@ -1,0 +1,189 @@
+<div class="bg-contact2 ">
+  <div class="wrap-contact2 d-flex justify-content-center" style="width:85%;">
+    <div class="container-contact2-form-btn">
+      <div>
+        <h1 class="contact2-form-title">Shipment Database</h1>
+        <div class="container-contact2-form-btn">
+          <div class="wrap-contact2-form-btn">
+            <div class="contact2-form-bgbtn"></div>
+            <button type="button" data-id="{{this.id}}" class="btn btn-danger" data-toggle="modal"
+                data-target="#newHazModal">
+               Add New Shipment
+              </button>
+          </div>
+        </div>
+      </div>
+      <table id="tablePreview" class="table table-hover ">
+        <!--Table head-->
+        <thead>
+          <tr>
+            <th>Country</th>
+            <th>Order Number</th>
+            <th>Lot Number</th>
+            <th>Full Boxes</th>
+            <th>Partial Box Volume</th>
+            <th>Box Size</th>
+            <th>Hazmat</th>
+            <th></th>
+          </tr>
+        </thead>
+        <!--table body-->
+        <tbody id="output">
+          {{#each shipments}}
+          <tr>
+            <td>{{this.country}}</td>
+            <td> {{this.orderNum}}</td>
+            <td> {{this.class}}</td>
+            <td> {{this.pg}}</td>
+            <td>{{this.packingInst}}</td>
+            <td> {{this.packingInstCAO}}</td>
+            <td>
+              <button type="button" data-id="{{this.id}}" class="btn btn-primary" data-toggle="modal"
+                data-target="#hazModal">
+                <i class="fas fa-edit"></i>
+              </button>
+            </td>
+            <td>
+              <form action="/api/delete-hazmat/{{this.id}}" method="DELETE">
+                <button data-id="{{this.id}}"type="submit" class="btn btn-danger">
+                  <i class="fas fa-trash-alt"></i>
+                </button>
+              </form>
+          </tr>
+          </td>
+          {{/each}}
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
+<div class="modal fade" id="hazModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+  aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Edit Hazmat</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <form class="contact2-form col-lg-10" method="POST" action="/api/create-hazmat">
+          <span class="contact2-form-title">
+          Edit Hazmat
+          </span>
+          <div class="wrap-input2">
+            <input class="input2 unNum" id="unNum" name="unNum" type="text">
+            <span class="focus-input2" data-placeholder="United Nations Number"></span>
+          </div>
+          <div class="wrap-input2">
+            <input class="input2 name" id="name" name="name" type="text">
+            <span class="focus-input2" data-placeholder="Technical Name"></span>
+          </div>
+          <div class="wrap-input2">
+            <input class="input2 class" name="class" type="text">
+            <span class="focus-input2" data-placeholder="Hazard Class"></span>
+          </div>
+          <div class="wrap-input2">
+            <input class="input2 pg" name="pg" type="text">
+            <span class="focus-input2" data-placeholder="Packing Group"></span>
+          </div>
+          <div class="wrap-input2">
+            <input class="input2 packingInst" type="text" name="packingInst">
+            <span class="focus-input2" data-placeholder="Packaging Instructions"></span>
+          </div>
+          <div class="wrap-input2">
+            <input class="input2 packingInstCAO" type="text" name="packingInstCAO">
+            <span class="focus-input2" data-placeholder="Packaging Instructions Cargo Aircraft Only"></span>
+          </div>
+          <div class="modal-footer">
+            <div class="container-contact2-form-btn">
+              <div class="wrap-contact2-form-btn">
+                <div class="contact2-form-bgbtn"></div>
+                <button class="contact2-form-btn" type="submit" data-dismiss="modal" id="addNewHazmat">
+                  Close
+                </button>
+              </div>
+            </div>
+          </div>
+          {{!-- <button type="button" class="btn btn-primary">Save changes</button> --}}
+          <div class="container-contact2-form-btn">
+            <div class="wrap-contact2-form-btn">
+              <div class="contact2-form-bgbtn"></div>
+              <button class="contact2-form-btn" type="submit" id="addNewHazmat">
+                Submit Changes
+              </button>
+            </div>
+          </div>
+      </div>
+    </div>
+    </form>
+  </div>
+</div>
+</div>
+</div>
+<div class="modal fade" id="newHazModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+  aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">New Shipment</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <form class="contact2-form col-lg-10" method="POST" action="/api/create-hazmat">
+          <span class="contact2-form-title">
+            Add New Shipment
+          </span>
+          <div class="wrap-input2">
+            <input class="input2 unNum" id="unNum" name="unNum" type="text">
+            <span class="focus-input2" data-placeholder="United Nations Number"></span>
+          </div>
+          <div class="wrap-input2">
+            <input class="input2 name" id="name" name="name" type="text">
+            <span class="focus-input2" data-placeholder="Technical Name"></span>
+          </div>
+          <div class="wrap-input2">
+            <input class="input2 class" name="class" type="text">
+            <span class="focus-input2" data-placeholder="Hazard Class"></span>
+          </div>
+          <div class="wrap-input2">
+            <input class="input2 pg" name="pg" type="text">
+            <span class="focus-input2" data-placeholder="Packing Group"></span>
+          </div>
+          <div class="wrap-input2">
+            <input class="input2 packingInst" type="text" name="packingInst">
+            <span class="focus-input2" data-placeholder="Packaging Instructions"></span>
+          </div>
+          <div class="wrap-input2">
+            <input class="input2 packingInstCAO" type="text" name="packingInstCAO">
+            <span class="focus-input2" data-placeholder="Packaging Instructions Cargo Aircraft Only"></span>
+          </div>
+          <div class="modal-footer">
+            <div class="container-contact2-form-btn">
+              <div class="wrap-contact2-form-btn">
+                <div class="contact2-form-bgbtn"></div>
+                <button class="contact2-form-btn" type="submit" data-dismiss="modal" id="addNewHazmat">
+                  Close
+                </button>
+              </div>
+            </div>
+          </div>
+          {{!-- <button type="button" class="btn btn-primary">Save changes</button> --}}
+          <div class="container-contact2-form-btn">
+            <div class="wrap-contact2-form-btn">
+              <div class="contact2-form-bgbtn"></div>
+              <button class="contact2-form-btn" type="submit" id="addNewHazmat">
+                Upload New Shipment
+              </button>
+            </div>
+          </div>
+      </div>
+    </div>
+  </div>
+  </form>
+</div>
+</div>
+</div>

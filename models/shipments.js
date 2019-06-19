@@ -1,6 +1,7 @@
+require("../models")
 module.exports = (sequelize, DataTypes) => {
-  const shipments = sequelize.define(
-    "shipments",
+  const Shipments = sequelize.define(
+    "Shipments",
     {
       date: DataTypes.STRING,
       address: DataTypes.STRING,
@@ -15,10 +16,11 @@ module.exports = (sequelize, DataTypes) => {
       "6x1": DataTypes.INTEGER,
       cao: DataTypes.BOOLEAN
     },
-    {}
+    
   );
-  shipments.associate = function(models) {
-    // associations can be defined here
+  Shipments.associate = function(models) {
+  //  Shipments.hasMany(models.Orders);
+  //  Shipments.hasOne(models.AddressBooks);
   };
-  return shipments;
+  return Shipments;
 };

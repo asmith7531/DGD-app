@@ -4,7 +4,7 @@
   "description": "An application for consolidating EMD's overly complicated paperwork",
   "main": "index.js",
   "scripts": {
-    "start": "node server.js"
+    "npm start": "node server.js"
   },
   "repository": {
     "type": "git",

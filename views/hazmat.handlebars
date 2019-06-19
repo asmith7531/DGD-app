@@ -40,13 +40,13 @@
             <td> {{this.packingInstCAO}}</td>
             <td>
               <button type="button" data-id="{{this.id}}" class="btn btn-primary" data-toggle="modal"
-                data-target="#hazModal">
+                data-target="#hazModal" name="editHazmat">
                 <i class="fas fa-edit"></i>
               </button>
             </td>
             <td>
               <form action="/api/delete-hazmat/{{this.id}}" method="DELETE">
-                <button data-id="{{this.id}}"type="submit" class="btn btn-danger">
+                <button data-id="{{this.id}}"type="submit" class="btn btn-danger" name="deleteHazmat">
                   <i class="fas fa-trash-alt"></i>
                 </button>
               </form>
@@ -74,28 +74,28 @@
           Edit Hazmat
           </span>
           <div class="wrap-input2">
-            <input class="input2 unNum" id="unNum" name="unNum" type="text">
-            <span class="focus-input2" data-placeholder="United Nations Number">{{this.unNum}}</span>
+            <input class="input2 unNum" id="unNum" name="unNum" type="text" value="{{this.unNum}}">
+            <span class="focus-input2" data-placeholder="United Nations Number"></span>
             {{!-- Trying to make this autocomplete with handlebars but i can not seem to reference it correctlY  FUCK  --}}
           </div>
           <div class="wrap-input2">
-            <input class="input2 name" id="name" name="name" type="text">
+            <input class="input2 name" id="name" name="name" type="text" value="{{this.name}}">
             <span class="focus-input2" data-placeholder="Technical Name"></span>
           </div>
           <div class="wrap-input2">
-            <input class="input2 class" name="class" type="text">
+            <input class="input2 class" name="class" type="text" value="{{this.class}}">
             <span class="focus-input2" data-placeholder="Hazard Class"></span>
           </div>
           <div class="wrap-input2">
-            <input class="input2 pg" name="pg" type="text">
+            <input class="input2 pg" name="pg" type="text" value="{{this.pg}}">
             <span class="focus-input2" data-placeholder="Packing Group"></span>
           </div>
           <div class="wrap-input2">
-            <input class="input2 packingInst" type="text" name="packingInst">
+            <input class="input2 packingInst" type="text" name="packingInst" value="{{this.packingInst}}">
             <span class="focus-input2" data-placeholder="Packaging Instructions"></span>
           </div>
           <div class="wrap-input2">
-            <input class="input2 packingInstCAO" type="text" name="packingInstCAO">
+            <input class="input2 packingInstCAO" type="text" name="packingInstCAO" value="{{this.packingInstCAO}}">
             <span class="focus-input2" data-placeholder="Packaging Instructions Cargo Aircraft Only"></span>
           </div>
           <div class="modal-footer">

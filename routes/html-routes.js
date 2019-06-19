@@ -16,7 +16,6 @@ module.exports = function(app) {
     models.AddressBooks.findAll({}).then(function(response) {
       res.render("addressbook", { AddressBooks: response });
     });
-    // myContacts.state = dataValues.AddressBooks.state;
   });
   app.get("/hazmat", function(req, res) {
     models.Hazmats.findAll({}).then(response => {

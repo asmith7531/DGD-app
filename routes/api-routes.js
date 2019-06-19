@@ -1,7 +1,8 @@
 //Dependencies
-var express = require("express");
-var db = require("../config/config.json");
+// var express = require("express");
+// var db = require("../config/config.json");
 var models = require("../models");
+// require("../logic");
 //Express Routes
 //============================
 module.exports = app => {
@@ -11,7 +12,6 @@ module.exports = app => {
       console.log(response);
     });
   });
-
   app.get("/api/addressbook/:id", (req, res) => {
     models.AddressBooks.findOne({
       where: {
@@ -70,16 +70,18 @@ module.exports = app => {
         res.redirect("addressbooks")
       });
   });
-  app.post("/api/create-order", (req, res) => {
-    models.AddressBooks.create({
+  //posting a new order to the database
+  app.post("/api/addOrder", (req, res) => {
+    models.Orders.create({
+      destination: req.body.destination,
       date: req.body.date,
       orderNum: req.body.orderNum,
       lotNum: req.body.lotNum,
       bottles: req.body.bottles,
       boxSize: req.body.boxSize,
       hazmat: req.body.hazmat
-    }).then(dbAddressBook => {
-      res.redirect("home");
+    }).then(response => {
+      res.redirect("/home");
     });
   });
   app.get("/api/orders", (req, res) => {

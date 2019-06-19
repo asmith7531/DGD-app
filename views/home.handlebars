@@ -1,10 +1,10 @@
 		<div class="wrap-contact2 d-inline-flex">
-			<form class="contact2-form validate-form col-lg-6" method="POST" action="/api/create-order">
+			<form class="contact2-form validate-form col-lg-6" method="POST" action="/api/addOrder">
 				<span class="contact2-form-title">
 					Order Entry
 				</span>
 				<small class="boxSize text">Destination</small>
-				<select class="form-control address">
+				<select class="form-control address" name="destination">
 					<option>select one</option>
 					{{#each AddressBooks}}
 					<option value="{{this.custID}}">
@@ -12,39 +12,31 @@
 					</option>
 					{{/each}}
 				</select>
-				<div class="container-contact2-form-btn">
-					<div class="wrap-contact2-form-btn">
-						<div class="contact2-form-bgbtn"></div>
-						<button class="contact2-form-btn" type="button" id="addNewLocationBtn">
-							Select This Destination
-						</button>
-					</div>
-				</div>
 				<div class="wrap-input2" data-validate="Name is required">
-					<input class="input2 date" name="date" type="date">
+					<input id="date"class="input2 date" name="date" type="date">
 					<span class="focus-input2" data-placeholder=""></span>
 				</div>
 				<div class="wrap-input2">
-					<input class="input2 po" type="number" name="po">
+					<input class="input2 po" type="number" name="orderNum">
 					<span class="focus-input2" data-placeholder="Order Number"></span>
 				</div>
-				<div class="wrap-input2 validate-input" data-validate="">
-					<input class="input2 batchNum" type="text">
+				<div id="lotNum" class="wrap-input2 validate-input" data-validate="">
+					<input class="input2 batchNum" type="text" name="lotNum">
 					<span class="focus-input2" data-placeholder="Lot Number"></span>
 				</div>
 				<div class="wrap-input2">
-					<input class="number input2 bottles" type="text">
+					<input id="bottles" class="number input2 bottles" name="bottles"type="text">
 					<span class="focus-input2" data-placeholder="Bottles"></span>
 				</div>
 				<small class="boxSize text">Box Size:</small>
-				<select class="form-control" id="boxOption">
+				<select class="form-control" name="boxSize"id="boxOption">
 					<option>4x1</option>
 					<option>4x4</option>
 					<option>2x10</option>
 					<option>6x1</option>
 				</select>
 				<small class="text">Hazardous Material:</small>
-				<select class="form-control hazmat">
+				<select class="form-control hazmat" id="hazmat"name="hazmat">
 					{{#each Hazmats}}
 					<option value="{{this.name}}">
 						{{this.name}}
@@ -54,7 +46,7 @@
 				<div class="container-contact2-form-btn">
 					<div class="wrap-contact2-form-btn">
 						<div class="contact2-form-bgbtn"></div>
-						<button class="contact2-form-btn addBatchBtn" type="button">
+						<button class="contact2-form-btn addBatchBtn" type="submit">
 							Add Item
 						</button>
 					</div>

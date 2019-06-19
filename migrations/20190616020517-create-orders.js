@@ -7,6 +7,10 @@ module.exports = {
         primaryKey: true,
         type: Sequelize.INTEGER
       },
+      destination:{
+        type:Sequelize.STRING,
+        allowNull:false
+      },
       date: {
         type: Sequelize.DATE
       },

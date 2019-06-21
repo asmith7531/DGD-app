@@ -1,7 +1,7 @@
 {
   "development": {
     "username": "austinsmith7531",
-    "password": null,
+    "password": "austin01",
     "database": "DGdb",
     "host": "mydgdb.cemjqoditbse.us-east-2.rds.amazonaws.com",
     "dialect": "mysql"

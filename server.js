@@ -34,7 +34,7 @@ var syncOptions = {
 
 // Starting the server, syncing our models ------------------------------------/
 db.sequelize.sync(syncOptions).then(() => {
-  app.listen(PORT, () => {
+  app.listen(3000, () => {
     console.log(
       "==> 🌎  Listening on port %s. Visit http://localhost:%s/ in your browser.",
       PORT,

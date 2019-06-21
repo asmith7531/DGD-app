@@ -1,9 +1,9 @@
 {
   "development": {
-    "username": "blitz",
+    "username": "austinsmith7531",
     "password": null,
-    "database": "rinchem_dg_db",
-    "host": "localhost",
+    "database": "DGdb",
+    "host": "mydgdb.cemjqoditbse.us-east-2.rds.amazonaws.com",
     "dialect": "mysql"
   },
   "test": {

@@ -18,9 +18,9 @@ module.exports = (sequelize, DataTypes) => {
     },
     
   );
-  Shipments.associate = function(models) {
-  //  Shipments.hasMany(models.Orders);
-  //  Shipments.hasOne(models.AddressBooks);
-  };
+  // Shipments.associate = function(models) {
+  // //  Shipments.hasMany(models.Orders);
+  // //  Shipments.hasOne(models.AddressBooks);
+  // };
   return Shipments;
 };
